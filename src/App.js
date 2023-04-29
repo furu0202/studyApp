@@ -1,23 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+  const [count, setCount] = useState(0);
+  const pushButtonPlus = () => {
+    setCount((prevcount) => prevcount + 1);
+  };
+  const pushButtonMinus = () => {
+    // if (count > 0) {
+    //   setCount((prevcount) => prevcount - 1);
+    // }
+    // setCount((prevcount) => (prevcount > 0 ? prevcount - 1 : 0));
+    setCount((prevcount) => prevcount - 1);
+  };
+
+  const pushButtonReset = () => {
+    setCount((prevcount) => (prevcount = 0));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <p>{count}</p>
+      <button onClick={pushButtonPlus}>これは＋ボタンです</button>
+      <button onClick={pushButtonMinus} disabled={count === 0}>
+        これはーボタンです
+      </button>
+      <button onClick={pushButtonReset}>これはリセットボタンです</button>
     </div>
   );
 }
