@@ -22,6 +22,8 @@ function App() {
         ーボタン
       </button>
       <button onClick={pushButtonReset}>リセットボタン</button>
+      <p>テキストフォーム</p>
+      <input type='text'></input>
     </div>
   );
 }
