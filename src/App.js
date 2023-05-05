@@ -16,10 +16,10 @@ function App() {
 
   const [counter, setCounter] = useState(0);
   const textPushButtonPlus = () => {
-    setCounter((prevcount) => prevcount + 2);
+    setCounter((prevcount) => prevcount + 1);
   };
   const textPushButtonMinus = () => {
-    setCounter((prevcount) => prevcount - 2);
+    setCounter((prevcount) => prevcount - 1);
   };
 
   return (
@@ -32,9 +32,9 @@ function App() {
       <button onClick={pushButtonReset}>リセットボタン</button>
       <p>現在の入力数は{counter}です</p>
       <input type='text'></input>
-      <button onClick={textPushButtonPlus}>＋ボタン</button>
+      <button onClick={textPushButtonPlus}>追加する</button>
       <button onClick={textPushButtonMinus} disabled={counter === 0}>
-        ーボタン
+        削除する
       </button>
     </div>
   );
