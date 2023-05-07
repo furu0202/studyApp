@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 function App() {
   const [count, setCount] = useState(0);
+  const [textData, setTextData] = useState([]);
   const pushButtonPlus = () => {
     setCount((prevcount) => prevcount + 1);
   };
@@ -13,12 +14,16 @@ function App() {
   const pushButtonReset = () => {
     setCount((prevcount) => (prevcount = 0));
   };
+  const [text, setText] = useState('');
 
   const [counter, setCounter] = useState(0);
-  const textPushButtonPlus = () => {
+
+  const addTodoButton = () => {
     setCounter((prevcount) => prevcount + 1);
+    setTextData([text]);
   };
-  const textPushButtonMinus = () => {
+
+  const removeTodoButton = () => {
     setCounter((prevcount) => prevcount - 1);
   };
 
@@ -31,13 +36,21 @@ function App() {
       </button>
       <button onClick={pushButtonReset}>リセットボタン</button>
       <p>現在の入力数は{counter}です</p>
-      <input type='text'></input>
-      <button onClick={textPushButtonPlus}>追加する</button>
-      <button onClick={textPushButtonMinus} disabled={counter === 0}>
+      <input
+        type='text'
+        value={text}
+        onChange={(e) => {
+          setText(e.target.value);
+        }}
+      />
+      <button onClick={addTodoButton}>追加する</button>
+      <button onClick={removeTodoButton} disabled={counter === 0}>
         削除する
       </button>
+      {textData.map((data) => (
+        <p>{data}</p>
+      ))}
     </div>
   );
 }
-
 export default App;
