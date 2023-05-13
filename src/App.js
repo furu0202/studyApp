@@ -20,7 +20,8 @@ function App() {
 
   const addTodoButton = () => {
     setCounter((prevcount) => prevcount + 1);
-    setTextData([text]);
+    setTextData((prevData) => [...prevData, text]);
+    setText('');
   };
 
   const removeTodoButton = () => {
