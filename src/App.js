@@ -16,16 +16,16 @@ function App() {
   };
   const [text, setText] = useState('');
 
-  const [counter, setCounter] = useState(0);
+  // const [counter, setCounter] = useState(0);
 
   const addTodoButton = () => {
-    setCounter((prevcount) => prevcount + 1);
+    // setCounter((prevcount) => prevcount + 1);
     setTextData((prevData) => [...prevData, text]);
     setText('');
   };
 
   const removeTodoButton = () => {
-    setCounter((prevcount) => prevcount - 1);
+    // setCounter((prevcount) => prevcount - 1);
   };
 
   return (
@@ -36,7 +36,7 @@ function App() {
         ーボタン
       </button>
       <button onClick={pushButtonReset}>リセットボタン</button>
-      <p>現在の入力数は{counter}です</p>
+      <p>現在の入力数は{textData.length}です</p>
       <input
         type='text'
         value={text}
@@ -45,7 +45,7 @@ function App() {
         }}
       />
       <button onClick={addTodoButton}>追加する</button>
-      <button onClick={removeTodoButton} disabled={counter === 0}>
+      <button onClick={removeTodoButton} disabled={textData.length === 0}>
         削除する
       </button>
       {textData.map((data) => (
