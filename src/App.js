@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -27,6 +27,10 @@ function App() {
   const removeTodoButton = () => {
     // setCounter((prevcount) => prevcount - 1);
   };
+
+  useEffect(() => {
+    console.log('Current count is...', count);
+  }, [count]);
 
   return (
     <div className='App'>
